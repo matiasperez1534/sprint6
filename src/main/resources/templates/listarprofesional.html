@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar profesional</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/81a2ed02b0.js"
+            crossorigin="anonymous"></script>
+</head>
+<body class="bg-info">
+<div class="container bg-success p-2 text-dark bg-opacity-25">
+    <div th:replace="nav :: navegacion"></div>
+    <h1>Listado de profesionales</h1>
+
+    <table class="table" id="table_profesional">
+        <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Run</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+            <th>Cargo</th>
+            <th>Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="lista: ${listapro}">
+            <td th:text="${lista.getId()}"></td>
+            <td th:text="${lista.getRun()}"></td>
+            <td th:text="${lista.getNombre()}"></td>
+            <td th:text="${lista.getApellido()}"></td>
+            <td th:text="${lista.getCorreo()}"></td>
+            <td th:text="${lista.getTelefono()}"></td>
+            <td th:text="${lista.getCargo()}"></td>
+            <td><a
+                    href="/listarprofesional"><i
+                    class="fa-solid fa-eye"></i></a> <a
+                    href="/listarprofesional"><i
+                    class="fa-solid fa-pen-to-square"></i></a> <a
+                    href="/listarprofesional"><i
+                    class="fa-solid fa-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:replace="footer :: foot"></div>
+</div>
+<script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+<script
+        src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+<script>
+				$(document).ready(function() {
+					$('#table_profesional').DataTable();
+				});
+
+
+
+
+</script>
+
+</body>
+</html>
